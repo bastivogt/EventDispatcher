@@ -44,23 +44,6 @@ public class Main implements Listener{
 
         new Main();
 
-        class CounterListener implements Listener {
-
-            public void update(Event e) {
-                Counter target = (Counter) e.getTarget();
-                if(e.getType() == Event.START) {
-                    System.out.println("onStart");
-                }
-
-                if(e.getType() == Event.CHANGE) {
-                    System.out.println("onChange count = " + target.getCount());
-                }
-
-                if(e.getType() == Event.FINISH) {
-                    System.out.println("onFinish");
-                }
-            }
-        }
 
 
 
@@ -86,7 +69,25 @@ public class Main implements Listener{
             }
         });*/
 
-        Listener counterListener = new CounterListener();
+
+
+        Listener counterListener = new Listener() {
+            @Override
+            public void update(Event e) {
+                Counter target = (Counter) e.getTarget();
+                if(e.getType() == Event.START) {
+                    System.out.println("onStart");
+                }
+
+                if(e.getType() == Event.CHANGE) {
+                    System.out.println("onChange count = " + target.getCount());
+                }
+
+                if(e.getType() == Event.FINISH) {
+                    System.out.println("onFinish");
+                }
+            }
+        };
 
         counter.addListener(counterListener);
         //counter.removeListerner(counterListener);
