@@ -71,7 +71,13 @@ public class Main implements Listener{
 
 
 
-        Listener counterListener = new Listener() {
+
+        int loop = 0;
+
+        final Listener counterListener = new Listener() {
+
+            private int loop = 0;
+
             @Override
             public void update(Event e) {
                 Counter target = (Counter) e.getTarget();
@@ -85,6 +91,12 @@ public class Main implements Listener{
 
                 if(e.getType() == Event.FINISH) {
                     System.out.println("onFinish");
+                    loop ++;
+                    System.out.println(loop);
+                    if(loop <= 1) {
+                        target.reset(1, 20, 2);
+                        target.run();
+                    }
                 }
             }
         };
