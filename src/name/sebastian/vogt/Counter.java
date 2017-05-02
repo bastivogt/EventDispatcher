@@ -2,11 +2,12 @@ package name.sebastian.vogt;
 
 import name.sebastian.vogt.events.Event;
 import name.sebastian.vogt.events.EventDispatcher;
+import name.sebastian.vogt.events.IEventDispatcher;
 
 /**
  * Created by sebastian on 04.11.16.
  */
-public class Counter extends EventDispatcher {
+public class Counter extends EventDispatcher implements IEventDispatcher {
 
     protected int start;
     protected int end;

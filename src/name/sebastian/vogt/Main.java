@@ -11,19 +11,21 @@ public class Main implements Listener{
     public Main() {
         this.counter = new Counter(0, 10, 1);
         this.counter.addListener(this);
-        //this.counter.removeListerner(this);
+        //this.counter.removeListener(this);
         this.counter.run();
 
     }
 
     public void update(Event e) {
+        //Counter target = (Counter) e.getTarget();
         Counter target = (Counter) e.getTarget();
         if(e.getType() == Event.START) {
             System.out.println("onStart");
         }
 
         if(e.getType() == Event.CHANGE) {
-            System.out.println("onChange count = " + target.getCount());
+            System.out.println("onChange count = " + ((Counter) e.getTarget()).getCount());
+
         }
 
         if(e.getType() == Event.FINISH) {
@@ -102,7 +104,7 @@ public class Main implements Listener{
         };
 
         counter.addListener(counterListener);
-        //counter.removeListerner(counterListener);
+        //counter.removeListener(counterListener);
 
 
 

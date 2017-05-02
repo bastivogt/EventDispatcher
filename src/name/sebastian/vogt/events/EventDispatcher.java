@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Created by sebastian on 04.11.16.
  */
-public class EventDispatcher {
+public class EventDispatcher implements IEventDispatcher {
 
     protected ArrayList<Listener> listerners;
 
@@ -15,11 +15,17 @@ public class EventDispatcher {
 
 
     public void addListener(Listener listener) {
-        this.listerners.add(listener);
+        if(!this.listerners.contains(listener)) {
+            this.listerners.add(listener);
+        }
+
     }
 
-    public void removeListerner(Listener listener) {
-        this.listerners.remove(listener);
+    public void removeListener(Listener listener) {
+        if(this.listerners.contains(listener)) {
+            this.listerners.remove(listener);
+        }
+
     }
 
 

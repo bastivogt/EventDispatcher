@@ -12,7 +12,7 @@ public class Event {
     protected Object target;
     protected String type;
 
-    public Event(Object target, String type) {
+    public Event(IEventDispatcher target, String type) {
         this.target = target;
         this.type = type;
     }
